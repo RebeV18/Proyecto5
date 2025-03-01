@@ -8,6 +8,7 @@ export const getRegions = async () => {
         const data = await response.json();
         return data;  
     } catch (error) {
-        throw new Error(error);
+        console.error("Error fetching regions data:", error);
+        throw error;
     }
 }
