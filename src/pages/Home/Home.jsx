@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { getComunas } from "../../services/fetchComunas";
 
 import "./Home.css";
@@ -8,6 +9,7 @@ export const Home = () => {
   const [searchComuna, setSearchComuna] = useState("");
   const [st, setStreet] = useState("");
   const [numero, setNumero] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleApiResponse = async () => {
@@ -39,9 +41,8 @@ export const Home = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate(`/zip/${searchComuna.id}`, { commune: { commune: searchComuna } }, { street: { street: st } }, { num: { num: numero } });
+    navigate(`/zip`, { state: { commune: searchComuna, street: st, num: numero } });
   };
-
 
   return (
     <>
@@ -68,8 +69,8 @@ export const Home = () => {
             placeholder="Número"
           />
         </div>
+        <button className="btn-search" type="submit">Enviar</button>
       </form>
-      <button className="btn-search">Enviar</button>
     </>
   );
 };
