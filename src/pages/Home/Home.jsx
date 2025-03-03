@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
-import { getRegions } from "../../services/fetchChile";
-import { Card_Regions } from "../../components/Cards/Regions/Card_Regions";
+import { getRegions } from "../../services/fetchZipCodes";
+import { Card_Regions } from "../../components/Cards/Comunas/Card_Comunas";
+import { ErrorMessage } from "../../components/ErrorMessage";
+
+import './Home.css'
 
 export const Home = () => {
     const [regions, setRegions] = useState([]);
@@ -30,7 +33,7 @@ export const Home = () => {
     return (
         <>
             <h1>Regiones de Chile</h1>
-            {error && <p>{error}</p>}
+            {error && <ErrorMessage message={error} />}
             {regions.map(region => (
                 <Card_Regions key={region.id} region={region} />
             ))}
