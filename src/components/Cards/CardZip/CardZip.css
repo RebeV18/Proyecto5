@@ -1,7 +1,7 @@
 .card_zip h3 {
-    color: var(--second-color)
+  color: var(--third-color);
 }
 
 .card_zip p {
-    color: var(--second-color)
+  color: var(--second-color);
 }

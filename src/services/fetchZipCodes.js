@@ -1,8 +1,8 @@
-const URL_BASE = "https://api.boostr.cl";
+const URL_BASE = "https://api.boostr.cl/postalcode.json";
 
 export const getZipCode = async (commune, street, number) => {
   try {
-    const response = await fetch(`${URL_BASE}/postalcode.json?commune=${commune}&street=${street}&number=${number}`);
+    const response = await fetch(`${URL_BASE}?commune=${commune}&street=${street}&number=${number}`);
     if (!response.ok)
       throw new Error("Error al solicitar información de las zip Codes");
 
