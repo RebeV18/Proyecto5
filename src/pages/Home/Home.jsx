@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getComunas } from "../../services/fetchComunas";
-import { Card_Comunas } from "../../Cards/Comunas/Card_Comunas"
+import { Card_Comunas } from "../../components/Cards/Comunas/Card_Comunas"
 
 import "./Home.css";
 
@@ -40,14 +40,14 @@ export const Home = () => {
 
   return (
     <>
-      <div className="form-search">
-        <input
+      <div className="flex flex-col justify-center shadow-15px-#0076a5 mb-20">
+        <input className=""
           type="text"
           value={searchComuna}
           onChange={handleComuna}
           placeholder="Comuna"
         />
-        {comunas.map((com) => (
+        {Array.isArray(comunas) && comunas.map((com) => (
           <Card_Comunas key={com.id} comuna={com} />
         ))}
         <input
