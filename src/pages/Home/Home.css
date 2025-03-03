@@ -16,7 +16,7 @@
     padding: 0.5rem;
 }
 
-.container-btn {
+.form-btn {
     display: flex;
     justify-content: center;
 }
@@ -27,6 +27,8 @@
     box-shadow: 0 0 15px var(--second-color);
 
     padding: 0.7rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     gap: 1rem;
     text-align: center;
     margin-bottom: 5rem;

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getComunas } from "../../services/fetchComunas";
+import { Card_Comunas } from "../../Cards/Comunas/Card_Comunas"
 
 import "./Home.css";
 
@@ -46,7 +47,9 @@ export const Home = () => {
           onChange={handleComuna}
           placeholder="Comuna"
         />
-        <p>Comuna: {searchComuna}</p>
+        {comunas.map((com) => (
+          <Card_Comunas key={com.id} comuna={com} />
+        ))}
         <input
           type="text"
           value={street}
@@ -60,7 +63,7 @@ export const Home = () => {
           placeholder="Número"
         />
       </div>
-      <div className="container-btn">
+      <div className="form-btn">
         <button className="btn-search">Enviar</button>
       </div>
     </>
