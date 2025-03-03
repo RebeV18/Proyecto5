@@ -13,9 +13,13 @@ export const Home = () => {
 
   useEffect(() => {
     const handleApiResponse = async () => {
-      const comunasResponse = await getComunas();
-      const comunasArray = comunasResponse.content;
-      setComunas(comunasArray);
+      try {
+        const comunasResponse = await getComunas();
+        const comunasArray = comunasResponse.content;
+        setComunas(comunasArray);
+      } catch (error) {
+        console.error("Error fetching communes data:", error);
+      }
     };
     handleApiResponse();
   }, []);

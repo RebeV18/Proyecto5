@@ -32,7 +32,7 @@ export const ZipCode = () => {
     <>
       <h1>Zip Code</h1>
       {error && <ErrorMessage message={error} />}
-      {zip.map((zip) => (
+      {Array.isArray(zip) && zip.map((zip) => (
         <CardZip key={zip.id} zip={zip} />
       ))}
     </>
