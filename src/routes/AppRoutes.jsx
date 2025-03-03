@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import { Navbar } from "../components/Navbar/Navbar";
+import { Navbar } from "../components/Navbar/Navbar"
 import { NotFound } from "../components/NotFound/NotFound";
-import { ZipCode } from "../pages/ZipCode/ZIpCode";
+import { Home } from "../pages/Home/Home";
 
 export const AppRoutes = () => {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<ZipCode />} />
+        <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

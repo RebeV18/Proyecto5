@@ -1,42 +1,68 @@
 import { useState, useEffect } from "react";
-import { getRegions } from "../../services/fetchZipCodes";
-import { Card_Regions } from "../../components/Cards/Comunas/Card_Comunas";
-import { ErrorMessage } from "../../components/ErrorMessage";
+import { getComunas } from "../../services/fetchComunas";
 
-import './Home.css'
+import "./Home.css";
 
 export const Home = () => {
-    const [regions, setRegions] = useState([]);
-    const [error, setError] = useState(null);
+  const [comunas, setComunas] = useState([]);
+  const [searchComuna, setSearchComuna] = useState("");
+  const [street, setStreet] = useState("");
+  const [numero, setNumero] = useState("");
 
-    useEffect(() => {
-        const handleApiResponse = async () => {
-            try {
-                const regionsResponse = await getRegions();
-                if (regionsResponse && Array.isArray(regionsResponse)) {
-                    setRegions(regionsResponse);
-                } else if (regionsResponse && regionsResponse.content && Array.isArray(regionsResponse.content)) {
-                    setRegions(regionsResponse.content);
-                } else if (regionsResponse && regionsResponse.data && Array.isArray(regionsResponse.data)) {
-                    setRegions(regionsResponse.data);
-                } else {
-                    setError("Unexpected data format");
-                }
-            } catch (err) {
-                console.error("Error fetching regions:", err);
-                setError("Failed to fetch regions");
-            }
-        };
-        handleApiResponse();
-    }, []);
+  useEffect(() => {
+    const handleApiResponse = async () => {
+      const comunasResponse = await getComunas();
+      const comunasArray = comunasResponse.content;
+      setComunas(comunasArray);
+    };
+    handleApiResponse();
+  }, []);
 
-    return (
-        <>
-            <h1>Regiones de Chile</h1>
-            {error && <ErrorMessage message={error} />}
-            {regions.map(region => (
-                <Card_Regions key={region.id} region={region} />
-            ))}
-        </>
-    );
+  const handleComuna = (event) => {
+    const value = event.target.value;
+    setSearchComuna(value);
+    if (comunas && comunas.length > 0) {
+      const filteredComuna = comunas.find(
+        (c) => c.name.toLowerCase() === value.toLowerCase()
+      );
+      setSearchComuna(filteredComuna ? filteredComuna.name : value);
+    }
+  };
+
+  const handleStreet = (event) => {
+    setStreet(event.target.value);
+  };
+
+  const handleNumero = (event) => {
+    setNumero(event.target.value);
+  };
+
+  return (
+    <>
+      <div className="form-search">
+        <input
+          type="text"
+          value={searchComuna}
+          onChange={handleComuna}
+          placeholder="Comuna"
+        />
+        <p>Comuna: {searchComuna}</p>
+        <input
+          type="text"
+          value={street}
+          onChange={handleStreet}
+          placeholder="Calle o Avenida"
+        />
+        <input
+          type="text"
+          value={numero}
+          onChange={handleNumero}
+          placeholder="Número"
+        />
+      </div>
+      <div className="container-btn">
+        <button className="btn-search">Enviar</button>
+      </div>
+    </>
+  );
 };
