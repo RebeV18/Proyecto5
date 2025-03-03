@@ -6,7 +6,7 @@ import "./Home.css";
 export const Home = () => {
   const [comunas, setComunas] = useState([]);
   const [searchComuna, setSearchComuna] = useState("");
-  const [street, setStreet] = useState("");
+  const [st, setStreet] = useState("");
   const [numero, setNumero] = useState("");
 
   useEffect(() => {
@@ -37,9 +37,15 @@ export const Home = () => {
     setNumero(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate(`/zip/${searchComuna.id}`, { commune: { commune: searchComuna } }, { street: { street: st } }, { num: { num: numero } });
+  };
+
+
   return (
     <>
-      <form className="m-50">
+      <form className="m-50" onSubmit={handleSubmit}>
         <div className="flex flex-col p-5 bg-#0076a5 rounded-xs m-50">
           <input
             className="flex-1 p-2 rounded-xs w-full"
@@ -51,7 +57,7 @@ export const Home = () => {
           <p>Comuna: {searchComuna}</p>
           <input
             type="text"
-            value={street}
+            value={st}
             onChange={handleStreet}
             placeholder="Calle o Avenida"
           />
