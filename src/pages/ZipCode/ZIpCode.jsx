@@ -1,42 +1,30 @@
 import { useState, useEffect } from "react";
-import { getRegions } from "../../services/fetchZipCodes";
-import { Card_Regions } from "../../components/Cards/Comunas/Card_Comunas";
+
+import { getZipCode } from "../../services/fetchZipCodes";
+import { CardZip } from "../../components/Cards/CardZip/CardZip";
 import { ErrorMessage } from "../../components/ErrorMessage";
 
-import './Home.css'
+import "./ZipCode.css";
 
-export const Home = () => {
-    const [regions, setRegions] = useState([]);
-    const [error, setError] = useState(null);
+export const ZipCode = ({ commune, street, num }) => {
+  const [zip, setZip] = useState([]);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const handleApiResponse = async () => {
-            try {
-                const regionsResponse = await getRegions();
-                if (regionsResponse && Array.isArray(regionsResponse)) {
-                    setRegions(regionsResponse);
-                } else if (regionsResponse && regionsResponse.content && Array.isArray(regionsResponse.content)) {
-                    setRegions(regionsResponse.content);
-                } else if (regionsResponse && regionsResponse.data && Array.isArray(regionsResponse.data)) {
-                    setRegions(regionsResponse.data);
-                } else {
-                    setError("Unexpected data format");
-                }
-            } catch (err) {
-                console.error("Error fetching regions:", err);
-                setError("Failed to fetch regions");
-            }
-        };
-        handleApiResponse();
-    }, []);
+  useEffect(() => {
+    const handleApiResponse = async () => {
+      const zipResponse = await getZipCode(commune, street, num);
+      const zipArray = zipResponse.content;
+      setZip(zipArray);
+    };
+    handleApiResponse();
+  }, []);
 
-    return (
-        <>
-            <h1>Regiones de Chile</h1>
-            {error && <ErrorMessage message={error} />}
-            {regions.map(region => (
-                <Card_Regions key={region.id} region={region} />
-            ))}
-        </>
-    );
+  return (
+    <>
+      <h1>Zip Code</h1>
+      {zip.map((zip) => (
+        <CardZip key={zip.id} zip={zip} />
+      ))}
+    </>
+  );
 };

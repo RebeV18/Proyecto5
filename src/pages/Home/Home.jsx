@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { getComunas } from "../../services/fetchComunas";
-import { Card_Comunas } from "../../components/Cards/Comunas/Card_Comunas"
 
 import "./Home.css";
 
@@ -40,32 +39,31 @@ export const Home = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center shadow-15px-#0076a5 mb-20">
-        <input className=""
-          type="text"
-          value={searchComuna}
-          onChange={handleComuna}
-          placeholder="Comuna"
-        />
-        {Array.isArray(comunas) && comunas.map((com) => (
-          <Card_Comunas key={com.id} comuna={com} />
-        ))}
-        <input
-          type="text"
-          value={street}
-          onChange={handleStreet}
-          placeholder="Calle o Avenida"
-        />
-        <input
-          type="text"
-          value={numero}
-          onChange={handleNumero}
-          placeholder="Número"
-        />
-      </div>
-      <div className="form-btn">
-        <button className="btn-search">Enviar</button>
-      </div>
+      <form className="m-50">
+        <div className="flex flex-col p-5 bg-#0076a5 rounded-xs m-50">
+          <input
+            className="flex-1 p-2 rounded-xs w-full"
+            type="text"
+            value={searchComuna}
+            onChange={handleComuna}
+            placeholder="Comuna"
+          />
+          <p>Comuna: {searchComuna}</p>
+          <input
+            type="text"
+            value={street}
+            onChange={handleStreet}
+            placeholder="Calle o Avenida"
+          />
+          <input
+            type="text"
+            value={numero}
+            onChange={handleNumero}
+            placeholder="Número"
+          />
+        </div>
+      </form>
+      <button className="btn-search">Enviar</button>
     </>
   );
 };
