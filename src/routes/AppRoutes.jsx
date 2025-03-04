@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { NotFound } from "../components/NotFound";
 import { Continents} from "../pages/Continents";
-import { Countries } from "../pages/Countries"
+import Countries from "../pages/Countries"; 
 
 export const AppRoutes = () => {
   return (

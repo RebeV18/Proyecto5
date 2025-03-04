@@ -12,7 +12,7 @@ const Countries = ({ continent }) => {
 
   return (
     <div>
-      {continent && (
+      {
         <div>
           <h2 className="flex justify-center text-6xl font-bold p-10 pb-30">
             {continent}
@@ -28,7 +28,7 @@ const Countries = ({ continent }) => {
             ))}
           </div>
         </div>
-      )}
+      }
     </div>
   );
 };
