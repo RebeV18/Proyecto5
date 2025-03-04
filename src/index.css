@@ -1,8 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@theme {
+
+/* @theme {
   --font-sans: "Georgia";
   --color-c-50: #ebfffe;
   --color-c-100: #cdffff;
@@ -37,7 +36,7 @@
   --color-b-800: #454545;
   --color-b-900: #3d3d3d;
   --color-b-950: #000000;
-}
+} */
 
 /* @plugin '@tailwindcss/typography'; */
 /* @custom-variant dark (&:where(.dark, .dark *)); */

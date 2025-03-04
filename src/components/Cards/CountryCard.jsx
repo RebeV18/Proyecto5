@@ -1,10 +1,23 @@
 export const CountryCard = ({ country }) => {
-    return (
-        <div className='flex flex-col items-center justify-center flex-wrap gap-.8 p-1 rounded-lg shadow-sm duration-.3s hover:scale-1.05 shadow-md-var(--second-color) z-1'>
-            <div className='card'>
-                <img className='w-90% h-auto z-1' src={country.flags} alt={country.name} />
-                <h3 className='text-2 font-medium text-var(--second-color)'>{country.name}</h3>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="flex flex-col items-center justify-center flex-wrap gap-.8 p-1 rounded-lg shadow-sm duration-.3s hover:scale-1.05 shadow-md z-1">
+      <div className="card">
+        <h2 className="flex justify-center text-3xl font-bold text-sky-800">
+          {theCountry.name.common}
+        </h2>
+        <img
+          className="w-90% h-auto z-1"
+          src={theCountry.flags.png}
+          alt={`Bandera de ${country.name.common}`}
+        />
+        <p>
+          <strong>Capital:</strong>{" "}
+          {country.capital ? country.capital[0] : "N/A"}
+        </p>
+        <p>
+          <strong>Población:</strong> {country.population.toLocaleString()}
+        </p>
+      </div>
+    </div>
+  );
+};

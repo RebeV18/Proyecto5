@@ -1,85 +1,36 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { CountryCard } from "../components/Cards/CountryCard";
 
-export const Country = () => {
-  const [countries, setCountries] = useState([]);
-  const [continents, setContinents] = useState({});
-  const [theContinent, setTheContinent] = useState(null);
-  const [theCountry, setTheCountry] = useState(null);
+const Countries = ({ continent }) => {
+  const navigate = useNavigate();
 
-  const arrangeTheContinent = (countries) => {
-    const group = countries.reduce((accum, country) => {
-      const continent = country.region;
-      if (!accum[continent]) accum[continent] = [];
-      accum[continent].push(country);
-      return accum;
-    }, {});
-    setContinents(group);
-  };
-
-  const handleContinent = (continent) => {
-    setTheContinent(continent);
-    setTheCountry(null);
-  };
-
-  const handleCountry = (country) => {
-    setTheCountry(country);
+  const handleCountry = (id) => {
+    navigate(`/country/${id}`);
   };
 
   return (
     <div>
-      <h1>Continentes</h1>
-      <div>
-        {Object.keys(continents).map((continent) => (
-          <button key={continent} onClick={() => handleContinent(continent)}>
+      {continent && (
+        <div>
+          <h2 className="flex justify-center text-6xl font-bold p-10 pb-30">
             {continent}
-          </button>
-        ))}
-      </div>
-      {theContinent && (
-        <div>
-          <h2>{theContinent}</h2>
-          <ul>
-            {continents[theContinent].map((country) => (
-              <li key={country.cca3}>
-                <button onClick={() => handleCountryClick(country)}>
-                  {country.name.common}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {theCountry && (
-        <div>
-          <h2 className="text-3xl font-bold text-sky-800">
-            {theCountry.name.common}
           </h2>
-          <p>
-            <strong>Capital:</strong>{" "}
-            {theCountry.capital ? theCountry.capital[0] : "N/A"}
-          </p>
-          <p>
-            <strong>Población:</strong> {theCountry.population.toLocaleString()}
-          </p>
-          <p>
-            <strong>Región:</strong> {theCountry.region}
-          </p>
-          <p>
-            <strong>Zona Horaria:</strong> {theCountryTimezone}
-          </p>
-          <p>
-            <strong>Bandera:</strong>{" "}
-            <img
-              src={theCountry.flags.png}
-              alt={`Bandera de ${theCountry.name.common}`}
-              style={{ width: "100px", height: "auto" }}
-            />
-          </p>
+          <div className="flex flex-row flex-wrap justify-center items-center gap-10">
+            {continent.map((country) => (
+              <button
+                key={country.id}
+                onClick={() => handleCountry(country.id)}
+              >
+                <CountryCard country={country} />
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
   );
 };
 
-export default Country;
+export default Countries;

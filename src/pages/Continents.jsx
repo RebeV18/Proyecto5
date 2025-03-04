@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Continents = () => {
   const [countries, setCountries] = useState([]);
   const [continents, setContinents] = useState({});
   const [theContinent, setTheContinent] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -26,33 +28,25 @@ export const Continents = () => {
 
   const handleContinent = (continent) => {
     setTheContinent(continent);
-    setTheCountry(null);
+    navigate(`/country/${theContinent}`);
   };
 
   return (
     <div>
-      <h1>Continentes</h1>
-      <div className='flex flex-col flex-wrap shadow-xs'>
+      <h1 className="flex justify-center text-6xl font-bold p-10 pb-30">
+        Continentes
+      </h1>
+      <div className="flex flex-row flex-wrap justify-center shadow-xs gap-30">
         {Object.keys(continents).map((continent) => (
-          <button className='shadow-xs-var(--second-color p-1 )' key={continent} onClick={() => handleContinent(continent)}>
+          <button
+            className="border-2 border-solid shadow-green-100 rounded-xl p-2 w-30"
+            key={continent}
+            onClick={() => handleContinent(continent)}
+          >
             {continent}
           </button>
         ))}
       </div>
-      {theContinent && (
-        <div>
-          <h2>{theContinent}</h2>
-          <ul>
-            {continents[theContinent].map((country) => (
-              <li key={country.cca3}>
-                <button onClick={() => handleCountryClick(country)}>
-                  {country.name.common}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 };
