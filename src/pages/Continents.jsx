@@ -33,13 +33,13 @@ export const Continents = () => {
 
   return (
     <div>
-      <h1 className="flex justify-center text-6xl font-bold p-10 pb-30">
+      <h1 className="flex justify-center text-xl md:text-3xl lg:text-6xl font-bold p-10 pb-30">
         Continentes
       </h1>
-      <div className="flex flex-row flex-wrap justify-center shadow-xs gap-30">
+      <div className="flex flex-row flex-wrap justify-center gap-30">
         {Object.keys(continents).map((continent) => (
           <button
-            className="border-2 border-solid shadow-green-100 rounded-xl p-2 w-30"
+            className="border-2 border-solid shadow rounded-xl p-2 w-30"
             key={continent}
             onClick={() => handleContinent(continent)}
           >
