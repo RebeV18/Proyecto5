@@ -1,17 +1,43 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  box-sizing: border-box;
-
-  background-color: #ffffff;
+@theme {
+  --font-sans: "Georgia";
+  --color-c-50: #ebfffe;
+  --color-c-100: #cdffff;
+  --color-c-200: #a1fcff;
+  --color-c-300: #60f7ff;
+  --color-c-400: #18e8f8;
+  --color-c-500: #00cbde;
+  --color-c-600: #00a7c0;
+  --color-c-700: #088096;
+  --color-c-800: #10677a;
+  --color-c-900: #125567;
+  --color-c-950: #053847;
+  --color-e-100: #d0fbe4;
+  --color-e-200: #a4f6ce;
+  --color-e-300: #6aebb5;
+  --color-e-50: #ebfef5;
+  --color-e-400: #2fd896;
+  --color-e-500: #0abf7e;
+  --color-e-600: #008f5f;
+  --color-e-700: #007c56;
+  --color-e-800: #036245;
+  --color-e-900: #04503a;
+  --color-e-950: #012d22;
+  --color-b-50: #f6f6f6;
+  --color-b-100: #e7e7e7;
+  --color-b-200: #d1d1d1;
+  --color-b-300: #b0b0b0;
+  --color-b-400: #888888;
+  --color-b-500: #6d6d6d;
+  --color-b-600: #5d5d5d;
+  --color-b-700: #4f4f4f;
+  --color-b-800: #454545;
+  --color-b-900: #3d3d3d;
+  --color-b-950: #000000;
 }
 
-:root {
-  --primary-color: #000000;
-  --second-color: #0076a5;
-  --third-color: #770400;
-  --fourth-color: #ffffff;
-}
+/* @plugin '@tailwindcss/typography'; */
+/* @custom-variant dark (&:where(.dark, .dark *)); */

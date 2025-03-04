@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav className="items-end p-3 bg-var(--second-color)-transparent">
+    <nav className="flex items-end p-3 bg-">
       <Link
         to="/"
-        className="text-var(--third-color) text-center p-0.7 gap-1 shadow-sm rounded-sm transition-0.3s"
+        className="text-third-color text-center p-1 gap-1 shadow-sm rounded-sm transition duration-300"
       >
         Inicio
       </Link>
