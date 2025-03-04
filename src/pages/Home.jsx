@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getComunas } from "../../services/fetchComunas";
-
-import "./Home.css";
+import { getComunas } from "../services/fetchComunas";
 
 export const Home = () => {
   const [comunas, setComunas] = useState([]);
