@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Button from "../components/Button"; // Update this line
+
 export const Continents = () => {
   const [countries, setCountries] = useState([]);
-  const [continents, setContinents] = useState({});
+  const [continents, setContinents] = useState([]);
   const [theContinent, setTheContinent] = useState(null);
+  const [theCountry, setTheCountry] = useState(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -12,40 +16,45 @@ export const Continents = () => {
       .then((response) => response.json())
       .then((data) => {
         setCountries(data);
-        arrangeTheContinent(data);
+        const groupCountries = [
+          ...new Set(data.map((country) => country.region).filter(Boolean)),
+        ];
+        setContinents(groupCountries);
       });
   }, []);
 
-  const arrangeTheContinent = (countries) => {
-    const group = countries.reduce((accum, country) => {
-      const continent = country.region;
-      if (!accum[continent]) accum[continent] = [];
-      accum[continent].push(country);
-      return accum;
-    }, {});
-    setContinents(group);
-  };
-
-  const handleContinent = (continent) => {
-    setTheContinent(continent);
-    navigate(`/country/${theContinent}`);
-  };
-
   return (
-    <div>
-      <h1 className="flex justify-center text-xl md:text-3xl lg:text-6xl font-bold p-10 pb-30">
-        Continentes
-      </h1>
-      <div className="flex flex-row flex-wrap justify-center gap-30">
-        {Object.keys(continents).map((continent) => (
-          <button
-            className="border-2 border-solid shadow rounded-xl p-2 w-30"
+    <div className="p-4 text-center">
+      <h1 className="text-2xl font-bold mb-4">Países por Continente</h1>
+      <div className="mb-4 flex flex-wrap justify-center gap-2">
+        {continents.map((continent) => (
+          <Button
             key={continent}
-            onClick={() => handleContinent(continent)}
+            className={`px-4 py-2 border-2 border-blue-300 rounded ${
+              theContinent === continent
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200"
+            }`}
+            onClick={() => setTheContinent(continent)}
           >
             {continent}
-          </button>
+          </Button>
         ))}
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {countries
+          .filter((country) => country.region === theContinent)
+          .map((country) => (
+            <Button
+              key={country.cca3}
+              className={`px-4 py-2 border-2 border-blue-300 rounded ${
+                country.name.official ? "bg-blue-500 text-white" : "bg-gray-200"
+              }`}
+              onClick={() => setTheCountry(country)}
+            >
+              {country.name.official}
+            </Button>
+          ))}
       </div>
     </div>
   );
