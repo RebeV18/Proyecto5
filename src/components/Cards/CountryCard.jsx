@@ -1,23 +1,33 @@
+import PropTypes from "prop-types";
+
 export const CountryCard = ({ country }) => {
   return (
-    <div className="flex flex-col items-center justify-center flex-wrap gap-.8 p-1 rounded-lg shadow-sm duration-.3s hover:scale-1.05 shadow-md z-1">
-      <div className="card">
-        <h2 className="flex justify-center text-3xl font-bold text-sky-800">
-          {country.name.official}
-        </h2>
-        <img
-          src={country.flags.svg}
-          alt={country.name.official}
-          className="w-20 h-12 mx-auto mt-2"
-        />
-        <p>
-          <strong>Capital:</strong>{" "}
-          {country.capital ? country.capital[0] : "N/A"}
-        </p>
-        <p>
-          <strong>Población:</strong> {country.population.toLocaleString()}
-        </p>
-      </div>
+    <div className="p-4 border rounded">
+      <h2 className="text-lg font-semibold">{country.name.official}</h2>
+      <img
+        src={country.flags.svg}
+        alt={country.name.common}
+        className="w-20 h-12 mx-auto mt-2"
+      />
+      <p>Capital: {country.capital}</p>
+      <p>Population: {country.population}</p>
     </div>
   );
 };
+
+CountryCard.propTypes = {
+  country: PropTypes.shape({
+    cca3: PropTypes.string.isRequired,
+    name: PropTypes.shape({
+      official: PropTypes.string.isRequired,
+      common: PropTypes.string.isRequired,
+    }).isRequired,
+    flags: PropTypes.shape({
+      svg: PropTypes.string.isRequired,
+    }).isRequired,
+    capital: PropTypes.string.isRequired,
+    population: PropTypes.number.isRequired,
+  }).isRequired,
+};
+
+export default CountryCard;

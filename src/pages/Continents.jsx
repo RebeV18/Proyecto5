@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-import Button from "../components/Button"; // Update this line
+import Button from "../components/Button";
+import { getNations } from "../services/fetchNations";
 
 export const Continents = () => {
   const [countries, setCountries] = useState([]);
@@ -12,20 +12,20 @@ export const Continents = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((response) => response.json())
-      .then((data) => {
-        setCountries(data);
-        const groupCountries = [
-          ...new Set(data.map((country) => country.region).filter(Boolean)),
-        ];
-        setContinents(groupCountries);
-      });
+    const handleApiResponse = async () => {
+      const data = await getNations();
+      setCountries(data);
+      const groupCountries = [
+        ...new Set(data.map((country) => country.region).filter(Boolean)),
+      ];
+      setContinents(groupCountries);
+    };
+    handleApiResponse();
   }, []);
 
   const handleClickCountry = (country) => {
-    setTheCountry(country)
-    navigate(`/country/${theCountry}`);
+    setTheCountry(country);
+    navigate(`/country/${country.cca3}`, { state: { country } });
   };
 
   return (
@@ -50,15 +50,18 @@ export const Continents = () => {
         {countries
           .filter((country) => country.region === theContinent)
           .map((country) => (
-            <Button
+            <div
               key={country.cca3}
-              className={`px-4 py-2 border-2 border-blue-300 rounded ${
-                country.name.official ? "bg-blue-500 text-white" : "bg-gray-200"
-              }`}
+              className="p-2 border rounded cursor-pointer"
               onClick={() => handleClickCountry(country)}
             >
-              {country.name.official}
-            </Button>
+              <h2 className="text-lg font-semibold">{country.name.official}</h2>
+              <img
+                src={country.flags.svg}
+                alt={country.name.common}
+                className="w-20 h-12 mx-auto mt-2"
+              />
+            </div>
           ))}
       </div>
     </div>
