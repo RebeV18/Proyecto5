@@ -23,6 +23,11 @@ export const Continents = () => {
       });
   }, []);
 
+  const handleClickCountry = (country) => {
+    setTheCountry(country)
+    navigate(`/country/${theCountry}`);
+  };
+
   return (
     <div className="p-4 text-center">
       <h1 className="text-2xl font-bold mb-4">Países por Continente</h1>
@@ -50,7 +55,7 @@ export const Continents = () => {
               className={`px-4 py-2 border-2 border-blue-300 rounded ${
                 country.name.official ? "bg-blue-500 text-white" : "bg-gray-200"
               }`}
-              onClick={() => setTheCountry(country)}
+              onClick={() => handleClickCountry(country)}
             >
               {country.name.official}
             </Button>
