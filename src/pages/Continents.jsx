@@ -29,9 +29,9 @@ export const Continents = () => {
   };
 
   return (
-    <div className="p-4 text-center">
+    <div className="p-15 text-center">
       <h1 className="text-2xl font-bold mb-4">Países por Continente</h1>
-      <div className="mb-4 flex flex-wrap justify-center gap-2">
+      <div className="mb-4 flex flex-wrap justify-center gap-5 p-15">
         {continents.map((continent) => (
           <Button
             key={continent}
@@ -55,10 +55,10 @@ export const Continents = () => {
               className="p-2 border rounded cursor-pointer"
               onClick={() => handleClickCountry(country)}
             >
-              <h2 className="text-lg font-semibold">{country.name.official}</h2>
+              <h2 className="text-lg font-semibold">{country.name.common}</h2>
               <img
                 src={country.flags.svg}
-                alt={country.name.common}
+                alt={country.name.official}
                 className="w-20 h-12 mx-auto mt-2"
               />
             </div>
