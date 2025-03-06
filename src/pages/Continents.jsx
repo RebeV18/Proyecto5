@@ -38,7 +38,7 @@ export const Continents = () => {
             className={`px-4 py-2 border-2 border-blue-300 rounded ${
               theContinent === continent
                 ? "bg-blue-500 text-white"
-                : "bg-gray-200"
+                : "bg-gray-100"
             }`}
             onClick={() => setTheContinent(continent)}
           >
@@ -52,7 +52,7 @@ export const Continents = () => {
           .map((country) => (
             <div
               key={country.cca3}
-              className="p-2 border rounded cursor-pointer"
+              className="p-2 border rounded cursor-pointer bg-gray-100"
               onClick={() => handleClickCountry(country)}
             >
               <h2 className="text-lg font-semibold">{country.name.common}</h2>
