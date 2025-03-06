@@ -21,9 +21,11 @@ export const Country = () => {
   }
 
   return (
-    <div className="p-4 text-center">
-      <CountryCard key={country.cca3} country={country} />
-    </div>
+    <ErrorBoundary>
+      <div className="p-4 text-center">
+        <CountryCard key={country.cca3} country={country} />
+      </div>
+    </ErrorBoundary>
   );
 };
 
