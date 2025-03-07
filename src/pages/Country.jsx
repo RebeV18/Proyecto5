@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { CountryCard } from "../components/Cards/CountryCard";
 import { getNations } from "../services/fetchNations";
+import { ErrorBoundary } from "../components/Error/ErrorBoundary";
 
 export const Country = () => {
   const { id } = useParams();
@@ -21,11 +22,9 @@ export const Country = () => {
   }
 
   return (
-    <ErrorBoundary>
-      <div className="p-4 text-center">
-        <CountryCard key={country.cca3} country={country} />
-      </div>
-    </ErrorBoundary>
+    <div className="p-4 text-center">
+      <CountryCard key={country.cca3} country={country} />
+    </div>
   );
 };
 

@@ -6,25 +6,23 @@ export const CountryCard = ({ country }) => {
   console.log(country.currency);
 
   return (
-    <ErrorBoundary>
-      <div className="flex justify-center p-10">
-        <div className="flex flex-col items-center p-5 pb-10 border rounded-xl shadow-blue-300">
-          <h2 className="text-lg font-semibold">{country.name.official}</h2>
-          <div className="flex flex-row items-center gap-15 p-5">
-            <img
-              src={country.flags.svg}
-              alt={country.name.nativeName.official}
-              className="w-50 h-auto mx-auto mt-5"
-            />
-            <div>
-              <p>Capital: {country.capital}</p>
-              <p>Idiomas: {languages}</p>
-              <p>Population: {country.population}</p>
-            </div>
+    <div className="flex justify-center p-10">
+      <div className="flex flex-col items-center p-5 pb-10 border-4 border-sky-500 rounded-xl shadow-blue-300">
+        <h2 className="text-lg font-semibold">{country.name.official}</h2>
+        <div className="flex flex-row items-center gap-15 p-5">
+          <img
+            src={country.flags.svg}
+            alt={country.name.nativeName.official}
+            className="w-50 h-auto mx-auto mt-5"
+          />
+          <div>
+            <p>Capital: {country.capital}</p>
+            <p>Idiomas: {languages}</p>
+            <p>Population: {country.population}</p>
           </div>
         </div>
       </div>
-    </ErrorBoundary>
+    </div>
   );
 };
 

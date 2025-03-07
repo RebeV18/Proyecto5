@@ -8,13 +8,11 @@ export const AppRoutes = () => {
   return (
     <>
       <Navbar />
-      <ErrorBoundary>
-        <Routes>
-          <Route path="/" element={<Continents />} />
-          <Route path="/country/:id" element={<Country />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </ErrorBoundary>
+      <Routes>
+        <Route path="/" element={<Continents />} />
+        <Route path="/country/:id" element={<Country />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 };
