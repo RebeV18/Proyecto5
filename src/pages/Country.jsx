@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { CountryCard } from "../components/Cards/CountryCard";
 import { getNations } from "../services/fetchNations";
-import { ErrorBoundary } from "../components/Error/ErrorBoundary";
+import Button from "../components/Button";
 
 export const Country = () => {
   const { id } = useParams();
@@ -24,6 +24,10 @@ export const Country = () => {
   return (
     <div className="p-4 text-center">
       <CountryCard key={country.cca3} country={country} />
+      <Button className="bg-gray-100 border-4 border-sky-500 rounded-lg p-1.5 bg-esmerald-400" 
+        onClick={() => window.history.back()}>
+        Volver
+      </Button>
     </div>
   );
 };

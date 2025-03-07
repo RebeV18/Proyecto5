@@ -37,7 +37,7 @@ export const Continents = () => {
             key={continent}
             className={`px-4 py-2 border-4 border-sky-400 rounded-lg ${
               theContinent === continent
-                ? "bg-sky-500 text-white"
+                ? "bg-sky-200 text-white"
                 : "bg-gray-100"
             }`}
             onClick={() => setTheContinent(continent)}
