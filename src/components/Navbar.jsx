@@ -1,4 +1,4 @@
-import Button from './Button'; // Update this line
+import Button from './Button';
 
 export const Navbar = () => {
   return (

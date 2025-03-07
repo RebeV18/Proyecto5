@@ -6,8 +6,8 @@ export const CountryCard = ({ country }) => {
   console.log(country.currency);
 
   return (
-    <div className="flex justify-center p-10">
-      <div className="flex flex-col items-center p-5 pb-10 border-4 border-sky-500 rounded-xl shadow-blue-300">
+    <div className="flex justify-center p-25">
+      <div className="flex flex-col items-center p-10 pb-10 border-4 border-sky-500 rounded-xl shadow-blue-300">
         <h2 className="text-lg font-semibold">{country.name.official}</h2>
         <div className="flex flex-row items-center gap-15 p-5">
           <img
