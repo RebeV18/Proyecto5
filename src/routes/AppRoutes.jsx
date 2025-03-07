@@ -1,18 +1,26 @@
 import { Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
+
 import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
 import { NotFound } from "../components/NotFound";
-import { Continents } from "../pages/Continents";
-import { Country } from "../pages/Country";
+import { Loading } from "../components/Loading";
+
+const Continents = lazy(() => import("../pages/Continents"));
+const Country = lazy(() => import("../pages/Country"));
 
 export const AppRoutes = () => {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Continents />} />
-        <Route path="/country/:id" element={<Country />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Continents />} />
+          <Route path="/country/:id" element={<Country />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+      <Footer />
     </>
   );
 };
