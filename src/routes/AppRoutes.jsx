@@ -5,7 +5,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { NotFound } from "../components/NotFound";
 import { Loading } from "../components/Loading";
-import { ErrorBoundary } from "../components/Error/ErrorBoundary";
+import ErrorBoundary from "../components/Error/ErrorBoundary";
 
 const Continents = lazy(() => import("../pages/Continents"));
 const Country = lazy(() => import("../pages/Country"));
@@ -13,7 +13,7 @@ const Country = lazy(() => import("../pages/Country"));
 export const AppRoutes = () => {
   return (
     <>
-      {/* <ErrorBoundary> */}
+      <ErrorBoundary>
         <Navbar />
         <Suspense fallback={<Loading />}>
           <Routes>
@@ -23,7 +23,7 @@ export const AppRoutes = () => {
           </Routes>
         </Suspense>
         <Footer />
-      {/* </ErrorBoundary> */}
+      </ErrorBoundary>
     </>
   );
 };
