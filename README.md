@@ -1,12 +1,21 @@
-# React + Vite
+# Proyecto 5
+Aplicación web con React en la que se consume la API pública de países "https://restcountries.com/v3.1/all".
+La aplicación muestra los Continentes del mundo y los países ordenados por países.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Requerimientos
+- Uso de vite para la generación del proyecto
+- Crear componentes funcionales
+- Utilizar una API pública y mostrar los datos obtenidos en tu interfaz de usuario
+- Uso de Hooks (mínimo useEffect para los procesos asíncronos)
+- Implementar rutas en tu aplicación con React Router
+- Manejar errores de renderizado con Error Boundaries
+- Implementación CSS a través de un framework (TailwindCSS, MUI, Bootstrap)
+- Permitir alguna interacción del usuario (por ejemplo, mediante botones o formularios)
+- Mostrar proyecto a través de una URL, usando un servicio de terceros (Netlify, GitHub Pages, Render)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Instrucciones de instalación
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Instrucciones de uso

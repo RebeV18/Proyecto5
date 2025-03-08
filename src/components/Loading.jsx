@@ -1,5 +1,6 @@
 import { FcAdvance } from "react-icons/fc";
 
+//Componente que será mostrado mientras cargan las páginas de la aplicación.
 export const Loading = () => {
   return (
     <div className="flex flex-col justify-center items-center p-20">

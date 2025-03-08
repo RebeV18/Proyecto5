@@ -1,10 +1,8 @@
 import PropTypes from "prop-types";
 
+//Componente para dibujar tarjetas del país seleccionado.
 export const CountryCard = ({ country }) => {
   const languages = Object.values(country.languages).join(", ");
-
-  console.log(country.currency);
-
   return (
     <div className="flex justify-center p-25">
       <div className="flex flex-col items-center p-10 pb-10 border-4 border-sky-500 rounded-xl shadow-blue-300">
@@ -26,6 +24,7 @@ export const CountryCard = ({ country }) => {
   );
 };
 
+//PropTypes requeridos para contruir tarjeta del país seleccionado.
 CountryCard.propTypes = {
   country: PropTypes.shape({
     cca3: PropTypes.string.isRequired,

@@ -1,5 +1,7 @@
+//URL de la API
 const URL_BASE = "https://restcountries.com/v3.1/all";
 
+//Función para obtener información de la API.
 export const getNations = async () => {
   try {
     const response = await fetch(`${URL_BASE}`);

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import Button from "../Button";
 
+//Componente para capturar los errores.
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,7 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error("Error captured by Error Boundary:", error, errorInfo);
+    console.error("Error capturado por Error Boundary:", error, errorInfo);
   }
 
   render() {
@@ -23,7 +24,12 @@ class ErrorBoundary extends Component {
         <>
           <div className="flex flex-col justify-center items-center">
             <h1 className="p-20">Algo salió mal.</h1>
-            <button className="bg-gray-100 border-4 border-sky-500 rounded-lg p-1.5" onClick={this.handleGoHome}>Volver al inicio</button>
+            <Button
+              className="bg-gray-100 border-4 border-sky-500 rounded-lg p-1.5 bg-esmerald-400"
+              onClick={() => window.history.back()}
+            >
+              Volver
+            </Button>
           </div>
         </>
       );

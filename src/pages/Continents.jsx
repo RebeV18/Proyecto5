@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import { getNations } from "../services/fetchNations";
 
+//Esta es la página principal de la aplicación.
 export const Continents = () => {
   const [countries, setCountries] = useState([]);
   const [continents, setContinents] = useState([]);
@@ -11,6 +12,7 @@ export const Continents = () => {
 
   const navigate = useNavigate();
 
+  //Se obtienen datos de la API y se organizan los países por continente usando useEffect.
   useEffect(() => {
     const handleApiResponse = async () => {
       const data = await getNations();
@@ -23,11 +25,13 @@ export const Continents = () => {
     handleApiResponse();
   }, []);
 
+  //Se envía a la página de países al dar click a un país.
   const handleClickCountry = (country) => {
     setTheCountry(country);
     navigate(`/country/${country.cca3}`, { state: { country } });
   };
 
+  //Se dibujan los continentes y posteriormente los países al seleccionar un Continente
   return (
     <div className="p-15 text-center">
       <h1 className="text-2xl font-bold mb-4">Países por Continente</h1>
@@ -48,7 +52,11 @@ export const Continents = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {countries
-          .filter((country) => country.region === theContinent)
+          .filter(
+            (country) =>
+              country.region === theContinent &&
+              country.name.common != "Antarctica"
+          )
           .map((country) => (
             <div
               key={country.cca3}
