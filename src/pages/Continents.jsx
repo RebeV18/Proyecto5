@@ -35,7 +35,7 @@ export const Continents = () => {
   return (
     <div className="bg-blend-soft-light p-15 text-center">
       <h1 className="text-white text-2xl font-bold mb-4 lg:text-5xl">Países por Continente</h1>
-      <div className="mb-4 flex flex-wrap justify-center gap-5 p-15 lg:text-3xl">
+      <div className="mb-4 flex flex-wrap justify-center gap-5 p-15 md:text-1xl lg:text-4xl">
         {continents.map((continent) => (
           <Button
             key={continent}
