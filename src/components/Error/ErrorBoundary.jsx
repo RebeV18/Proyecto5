@@ -10,7 +10,7 @@ class ErrorBoundary extends Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
@@ -22,7 +22,7 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <>
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center text-white">
             <h1 className="p-20">Algo salió mal.</h1>
             <Button
               className="bg-gray-100 border-4 border-sky-500 rounded-lg p-1.5 bg-esmerald-400"

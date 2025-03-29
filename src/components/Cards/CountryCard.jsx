@@ -5,9 +5,9 @@ export const CountryCard = ({ country }) => {
   const languages = Object.values(country.languages).join(", ");
   return (
     <div className="flex justify-center p-25">
-      <div className="flex flex-col items-center p-10 pb-10 border-4 border-sky-500 rounded-xl shadow-blue-300">
-        <h2 className="text-lg font-semibold">{country.name.official}</h2>
-        <div className="flex flex-row items-center gap-15 p-5">
+      <div className="flex flex-col items-center p-10 pb-10 border-4 border-amber-500 rounded-xl shadow-blue-300  lg:p-15 lg:text-3xl">
+        <h2 className="text-lg font-semibold md:text-2xl lg:text-5xl">{country.name.official}</h2>
+        <div className="flex flex-col md:flex-row items-center gap-15 p-5">
           <img
             src={country.flags.svg}
             alt={country.name.nativeName.official}

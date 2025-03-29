@@ -26,10 +26,10 @@ export const Country = () => {
 
   //Se dibuja la tarjeta de país y botón para volver a página anterior.
   return (
-    <div className="p-4 text-center">
+    <div className="p-4 text-center text-white">
       <CountryCard key={country.cca3} country={country} />
       <Button
-        className="bg-gray-100 border-4 border-sky-500 rounded-lg p-1.5 bg-esmerald-400"
+        className="border-4 border-amber-500 rounded-lg p-1.5 bg-esmerald-400 md:text-lg lg:text-2xl"
         onClick={() => window.history.back()}
       >
         Volver

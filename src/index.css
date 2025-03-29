@@ -1,3 +1,20 @@
 /* Se importa Tailwind para dar estilo a las páginas y componentes. */
-
 @import "tailwindcss";
+
+@theme {
+  --color-customBlue-50: #e9feff;
+  --color-customBlue-100: #c9fdff;
+  --color-customBlue-200: #99f9ff;
+  --color-customBlue-300: #54f2ff;
+  --color-customBlue-400: #07dfff;
+  --color-customBlue-500: #00c2ef;
+  --color-customBlue-600: #0099c9;
+  --color-customBlue-700: #0079a1;
+  --color-customBlue-800: #086182;
+  --color-customBlue-900: #0c506d;
+  --color-customBlue-950: #002333;  
+}
+
+* {
+  background-color: #002333;
+}

@@ -28,18 +28,18 @@ export const Continents = () => {
   //Se envía a la página de países al dar click a un país.
   const handleClickCountry = (country) => {
     setTheCountry(country);
-    navigate(`/country/${country.cca3}`, { state: { country } });
+    navigate(`/country/${country.cca3}`, { state: { theCountry } });
   };
 
   //Se dibujan los continentes y posteriormente los países al seleccionar un Continente
   return (
-    <div className="p-15 text-center">
-      <h1 className="text-2xl font-bold mb-4">Países por Continente</h1>
-      <div className="mb-4 flex flex-wrap justify-center gap-5 p-15">
+    <div className="bg-blend-soft-light p-15 text-center">
+      <h1 className="text-white text-2xl font-bold mb-4 lg:text-5xl">Países por Continente</h1>
+      <div className="mb-4 flex flex-wrap justify-center gap-5 p-15 lg:text-3xl">
         {continents.map((continent) => (
           <Button
             key={continent}
-            className={`px-4 py-2 border-4 border-sky-400 rounded-lg ${
+            className={`text-white px-4 py-2 border-4 border-amber-400 rounded-lg ${
               theContinent === continent
                 ? "bg-sky-200 text-white"
                 : "bg-gray-100"
@@ -60,10 +60,10 @@ export const Continents = () => {
           .map((country) => (
             <div
               key={country.cca3}
-              className="p-2 border-4 border-sky-500 rounded cursor-pointer bg-gray-100"
+              className="p-2 border-4 border-indigo-300 rounded cursor-pointer"
               onClick={() => handleClickCountry(country)}
             >
-              <h2 className="text-lg font-semibold">{country.name.common}</h2>
+              <h2 className="text-xs md:text-lg text-white font-semibold lg:text-2xl">{country.name.common}</h2>
               <img
                 src={country.flags.svg}
                 alt={country.name.official}
