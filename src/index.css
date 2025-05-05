@@ -12,9 +12,5 @@
   --color-customBlue-700: #0079a1;
   --color-customBlue-800: #086182;
   --color-customBlue-900: #0c506d;
-  --color-customBlue-950: #002333;  
-}
-
-* {
-  background-color: #002333;
+  --color-customBlue-950: #002333;
 }

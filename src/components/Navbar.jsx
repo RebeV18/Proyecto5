@@ -5,9 +5,9 @@ import Button from "./Button";
 export const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <nav className="flex flex-row-reverse text-white p-10 bg-gradient-to-b from-amber-700 via-amber-900 to-sky-900">
+    <nav className="fixed top-0 left-0 w-full flex flex-row-reverse text-white p-10 bg-gradient-to-b from-amber-700 via-slate-800 to-slate-900">
       <Button
-        className="border-4 border-amber-500 rounded-lg p-1.5 bg-esmerald-400 lg:text-2xl"
+        className="border-4 border-amber-500 rounded-lg text-white p-1.5 text-base lg:text-lg xl:text-xl 2xl:text-4xl"
         onClick={() => navigate(-1)}
       >
         Inicio
