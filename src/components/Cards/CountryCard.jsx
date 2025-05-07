@@ -8,7 +8,7 @@ export const CountryCard = ({ country }) => {
     <>
       <Background />
       <div className="flex justify-center pt-35 pb-10 2xl:pt-50 pb-20">
-        <div className="flex flex-col items-center p-10 pb-10 border-4 border-amber-500 rounded-xl shadow-blue-300 lg:p-15 2xl:p-25">
+        <div className="flex flex-col items-center p-10 pb-10 border-4 border-[#DAFDBA] rounded-xl shadow-blue-300 lg:p-15 2xl:p-25">
           <h2 className="text-white text-lg font-semibold md:text-3xl lg:text-4xl 2xl:text-6xl">
             {country.name.official}
           </h2>

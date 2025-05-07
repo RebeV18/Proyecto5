@@ -45,7 +45,7 @@ export const Continents = () => {
           {continents.map((continent) => (
             <Button
               key={continent}
-              className={`text-white px-4 py-2 border-4 border-amber-400 rounded-lg ${
+              className={`text-white px-4 py-2 border-4 border-[#DAFDBA] rounded-lg ${
                 theContinent === continent ? "text-white" : "text-gray-500"
               }`}
               onClick={() => setTheContinent(continent)}
@@ -64,7 +64,7 @@ export const Continents = () => {
             .map((country) => (
               <div
                 key={country.cca3}
-                className="p-2 border-4 border-indigo-300 rounded cursor-pointer"
+                className="p-2 border-4 border-[#9AEBA3] rounded cursor-pointer"
                 onClick={() => handleClickCountry(country)}
               >
                 <h2 className="text-xs md:text-base text-white font-semibold lg:text-xl xl:text-2xl 2xl:text-4xl">

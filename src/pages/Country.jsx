@@ -47,7 +47,7 @@ export const Country = () => {
       <div className="p-4 text-center">
         <CountryCard key={country.cca3} country={country} />
         <Button
-          className="border-4 border-amber-500 rounded-lg text-white p-1.5 text-base lg:text-lg xl:text-xl 2xl:text-4xl"
+          className="border-4 border-[#9AEBA3] rounded-lg text-white p-1.5 text-base lg:text-lg xl:text-xl 2xl:text-4xl"
           onClick={() => window.history.back()}
         >
           Volver
