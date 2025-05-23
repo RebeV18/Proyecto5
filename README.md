@@ -17,7 +17,8 @@ Aplicación web con React en la que se consume una API pública. Proyecto práct
 La aplicación muestra los Continentes del mundo y los países ordenados por Continente.
 
 Para esta aplicación se está consumiendo la API pública de países disponible en el link: *https://restcountries.com/v3.1/all*
-En este proyecto utilizamos Tailwind para dar estilo a las páginas y componentes y se utiliza Netlify para mostrar proyecto a través de la URL *udd-c17-proyecto5.netlify.app*.
+
+En este proyecto se utilizó Tailwind para dar estilo a las páginas y componentes y se utiliza Netlify para mostrar proyecto a través de la URL *udd-c17-proyecto5.netlify.app*.
 
 
 ## Instrucciones de instalación
